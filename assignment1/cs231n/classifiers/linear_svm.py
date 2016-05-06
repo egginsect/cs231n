@@ -76,6 +76,7 @@ def svm_loss_vectorized(W, X, y, reg):
   # Rule out the element corresponding to true label
   margins[np.arange(num_train),y] = 0
   loss = np.sum(margins)/num_train
+  loss += 0.5 * reg * np.sum(W * W)
   #############################################################################
   #                             END OF YOUR CODE                              #
   #############################################################################
